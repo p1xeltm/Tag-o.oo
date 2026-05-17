@@ -1,0 +1,207 @@
+body {
+    font-family: 'Google Sans Flex', sans-serif;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+    padding: 0 15px;
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 550px;
+    padding: 1.8rem;
+    background: var(--bgcard);
+    border-radius: 17px;
+    box-shadow: -5px 11px 11px var(--card-shdw);
+}
+
+h1 {
+    color: var(--akzent);
+    margin: 0 0 2.1rem;
+    font-size: 1.1rem;
+    letter-spacing: 2.5px;
+    font-weight: 512;
+}
+
+.main-stat-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 30px;
+    margin-bottom: 1.5rem;
+    align-items: end;
+}
+
+.stat-main-zahl {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: clamp(4.5rem, 18vw, 5.5rem);
+    font-weight: 171;
+    color: var(--statzahl);
+    line-height: 0.8;
+}
+
+.stat-main-wrd {
+    font-size: 1.2rem;
+    color: var(--statwrds);
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.stat-container {
+    border-left: 2.7px solid var(--akzent);
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 6px;
+}
+
+.stat-wrds {
+    font-size: 1.0rem;
+    color: var(--statwrds);
+    font-weight: 300;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.stat-zahl {
+    color: var(--statzahl);
+    font-weight: 450;
+}
+
+.progress-container {
+    margin: 2.1rem 0 2.91rem;
+    padding-top: 35px;
+    position: relative;
+}
+
+.bar-bg {
+    background: var(--bar00bg);
+    height: 11px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--barakznt1), var(--barakznt2));
+    border-radius: 10px;
+}
+
+.marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 27px;
+    background: var(--bar00mrkr);
+}
+
+.marker.reached {
+    background: var(--akzent);
+    z-index: 2;
+    box-shadow: 0 0 1px var(--akzent);
+}
+
+.marker-label {
+    position: absolute;
+    top: -31px;
+    transform: translateX(-50%);
+    font-size: .9rem;
+    color: var(--bar00mrkr);
+    font-weight: 450;
+}
+
+.marker.reached .marker-label { 
+    color: var(--akzent); 
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline; 
+    margin-top: 4.1rem;
+    gap: 7px;
+}
+
+.version-tag { 
+    font-size: 0.91rem;
+    color: var(--statwrds); 
+    opacity: .71;
+    line-height: 1;
+}
+
+.icon-git { 
+    width: 24px;
+    height: 24px; 
+    position: relative;
+    top: 2px;
+}
+
+/*
+  ---------------------------------------------------------------------
+    Optimierungen für Umbruch-Layout
+    Google Pixel 6a // max-width: 720px
+  ---------------------------------------------------------------------
+*/
+
+@media (max-width: 720px) {
+    .main-stat-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .stat-main-zahl {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 1.71rem;
+        font-size: clamp(6.1rem, 22vw, 8rem);
+    }
+
+    .stat-main-wrd {
+        font-size: 1.3rem;
+    }
+
+    .stat-container {
+        border-left: none;
+        border-top: 2.7px solid var(--akzent);
+        padding-left: 0;
+        padding-top: 1.5rem;
+        width: 100%;
+        align-items: center;
+    }
+
+    .stat-wrds {
+        font-size: 1.14rem;
+    }
+
+    .progress-container {
+        margin-top: 2.4rem;
+        padding-top: 22px;
+    }
+
+    .marker-label {
+        top: -23px;
+    }
+
+    .footer {
+        align-items: baseline; 
+        gap: 7px;
+    }
+
+    .version-tag {
+        font-size: .81rem !important;
+    }
+
+    .icon-git { 
+        width: 21px; 
+        height: 21px;
+        top: 0px;
+    }
+}

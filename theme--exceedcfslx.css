@@ -1,0 +1,15 @@
+:root {
+
+    --bg:           hsl(0, 0%, 75%);
+    --bgcard:       hsl(0, 0%, 100%);
+    --card-shdw:    hsl(0, 0%, 40%);
+
+    --akzent:       hsl(24, 100%, 47%);
+    --statwrds:     hsl(50, 70%, 45%);
+    --statzahl:     hsl(214, 20%, 27%);
+
+    --barakznt1:    hsl(50, 100%, 55%);
+    --barakznt2:    hsl(24, 100%, 47%);
+    --bar00bg:      hsl(0, 0%, 85%);
+    --bar00mrkr:    hsl(0, 0%, 50%);
+}
