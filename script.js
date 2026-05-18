@@ -71,3 +71,6 @@ const update = () => {
 };
 
 update();
+
+// Einbindung version.json
+fetch('version.json').then(r => r.json()).then(d => version.textContent = d.version);
