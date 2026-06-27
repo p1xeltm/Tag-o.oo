@@ -80,7 +80,7 @@ h1 {
 }
 
 .progress-container {
-    margin: 2.1rem 0 2.91rem;
+    margin: 2.1rem 0 0;
     padding-top: 41px;
     position: relative;
 }
@@ -131,7 +131,7 @@ h1 {
     display: flex;
     justify-content: flex-end;
     align-items: baseline; 
-    margin-top: 4.1rem;
+    margin-top: 1.7rem;
     gap: 7px;
 }
 
@@ -149,6 +149,20 @@ h1 {
     position: relative;
     top: 2px;
 }
+
+.milestones-archive {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--bar00mrkr);
+    letter-spacing: 0.07em;
+    opacity: 0.17;
+}
+
+.milestones-archive summary {
+    cursor: pointer;
+    list-style: none;
+}
+
 
 /*
   ---------------------------------------------------------------------
@@ -201,7 +215,7 @@ h1 {
     }
 
     .footer {
-        align-items: baseline; 
+        align-items: baseline;
         gap: 7px;
     }
 
@@ -209,7 +223,7 @@ h1 {
         font-size: .81rem !important;
     }
 
-    .icon-git { 
+    .icon-git {
         width: 21px; 
         height: 21px;
         top: 0px;
