@@ -97,8 +97,9 @@ h1 {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 2px;
-    height: 27px;
+    width: 3px;
+    height: 23px;
+    border-radius: 2px;
     background: var(--bar00mrkr);
 }
 
@@ -186,7 +187,7 @@ h1 {
     }
 
     .progress-container {
-        margin-top: 2.7rem;
+        margin-top: 1.9rem;
         padding-top: 22px;
     }
 
