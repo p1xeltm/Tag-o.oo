@@ -1,5 +1,14 @@
 const START_DATE = "2026-02-17";
-const MILESTONES = [21, 41, 71, 91, 117, 141];
+const MILESTONES_ARCHIVE = [21, 41, 71, 91];
+const MILESTONES = [117, 141, 157, 171];
+
+const SCALE_PADDING = 13;
+const rawMin = Math.min(...MILESTONES);
+const rawMax = Math.max(...MILESTONES);
+const min = Math.max(0, rawMin - SCALE_PADDING);
+const max = rawMax;
+const range = max - min;
+
 
 const elements = {
     days: document.getElementById('d'),
@@ -7,7 +16,8 @@ const elements = {
     fill: document.getElementById('fill'),
     bg: document.getElementById('bg'),
     version: document.getElementById('version'),
-    daysLabel: document.getElementById('days-label')
+    daysLabel: document.getElementById('days-label'),
+    milestonesArchive: document.getElementById('milestones-archive-content')
 };
 
 
@@ -19,7 +29,6 @@ const update = () => {
     today.setHours(0, 0, 0, 0);
 
     const totalDays = Math.max(0, Math.floor((today - start) / 864e5));
-    const max = Math.max(...MILESTONES);
 
     elements.days.textContent = totalDays;
 
@@ -57,8 +66,13 @@ const update = () => {
         </div>
     `;
 
+    // Meilensteine, Archiv
+    elements.milestonesArchive.textContent =
+    MILESTONES_ARCHIVE.join(' • ');
+
     // Progress-Bar
-    elements.fill.style.width = Math.min((totalDays / max) * 100, 100) + "%";
+    elements.fill.style.width = Math.min(((totalDays - min) / range) * 100, 100) + "%"
+
 
     // Marker setzen
     const frag = document.createDocumentFragment();
@@ -67,7 +81,10 @@ const update = () => {
     [0, ...MILESTONES].forEach(m => {
         const mk = document.createElement('div');
         mk.className = `marker ${totalDays >= m ? 'reached' : ''}`;
-        mk.style.left = (m / max * 100) + "%";
+
+        const pos = ((m - min) / range);
+        mk.style.left = Math.min(Math.max(pos, 0), 1) * 100 + "%";
+
         mk.innerHTML = `<span class="marker-label">${m}</span>`;
         frag.appendChild(mk);
     });
