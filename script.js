@@ -40,18 +40,14 @@ const update = () => {
     
     const remainingDays = Math.floor((today - tempDate) / 864e5);
 
-    elements.subs.innerHTML = `
-        <div class="stat-wrds">
-            <span class="stat-zahl">${yearsDec}</span> jahre
-        </div>
-        <div class="stat-wrds">
-            <span class="stat-zahl">${monthsDec}</span> monate
-        </div>
-        <div class="stat-wrds">
-            <span class="stat-zahl">${fullMonths}</span> monate 
-            <span class="stat-zahl">${remainingDays}</span> tag:e
-        </div>
-    `;
+
+elements.subs.innerHTML = `
+    <div class="stat-wrds stat-main">
+        <span class="stat-zahl">${fullMonths}</span> monate 
+        <span class="stat-zahl">${remainingDays}</span> tag:e
+    </div>
+`;
+
 
     elements.fill.style.width = Math.min((totalDays / max) * 100, 100) + "%";
     
