@@ -132,6 +132,7 @@ h1 {
     color: var(--statwrds); 
     opacity: .71;
     line-height: 1;
+    letter-spacing: 0.11em;
 }
 
 .icon-git { 
