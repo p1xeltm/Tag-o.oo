@@ -41,7 +41,6 @@ h1 {
 .stat-main-zahl {
     display: flex;
     align-items: baseline;
-    gap: 8px;
     font-size: clamp(4.5rem, 18vw, 5.5rem);
     font-weight: 171;
     color: var(--statzahl);
@@ -75,14 +74,16 @@ h1 {
 
 .stat-zahl {
     color: var(--statzahl);
-    font-size: 1.4rem;
-    font-weight: 450;
+    font-size: 1.91rem;
+    font-weight: 410;
 }
 
 .progress-container {
     margin: 2.1rem 0 0;
-    padding-top: 41px;
     position: relative;
+    padding-top: 41px;
+    padding-left: 10px;
+    padding-right: 5px;
 }
 
 .bar-bg {
@@ -151,16 +152,17 @@ h1 {
 }
 
 .milestones-archive {
-    margin-top: 20px;
-    font-size: 0.95rem;
+    margin-top: 21px;
+    font-size: 1.0rem;
     color: var(--bar00mrkr);
     letter-spacing: 0.07em;
-    opacity: 0.17;
+    opacity: 0.27;
 }
 
 .milestones-archive summary {
     cursor: pointer;
     list-style: none;
+    margin-left: 7px;
 }
 
 
@@ -182,13 +184,12 @@ h1 {
     .stat-main-zahl {
         width: 100%;
         justify-content: center;
-        gap: 8px;
         margin-bottom: 1.1rem;
         font-size: clamp(6.1rem, 22vw, 8rem);
     }
 
     .stat-main-wrd {
-        font-size: 1.3rem;
+        font-size: 1.17rem;
     }
 
     .stat-container {
@@ -196,19 +197,31 @@ h1 {
         border-left: none;
         border-top: 2.7px solid var(--akzent);
         padding-left: 0;
+        padding-top: 0.91rem;
         width: 100%;
         align-items: center;
-        padding-top: 1.1rem;
     }
 
     .stat-wrds {
-        font-size: 1.14rem;
+        font-size: 1.17rem;
+    }
+
+    .stat-zahl {
+        font-size: 1.71rem;
     }
 
     .progress-container {
-        margin-top: 1.9rem;
+        margin-top: 1.57rem;
         padding-top: 22px;
+        padding-left: 0;
+        padding-right: 0;
     }
+
+
+    .milestones-archive summary {
+        margin-left: 0px;
+    }
+
 
     .marker-label {
         top: -23px;
