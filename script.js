@@ -49,7 +49,7 @@ const update = () => {
         </div>
         <div class="stat-wrds">
             <span class="stat-zahl">${fullMonths}</span> monate 
-            <span class="stat-zahl">${remainingDays}</span> tage
+            <span class="stat-zahl">${remainingDays}</span> tag:e
         </div>
     `;
 
