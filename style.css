@@ -33,6 +33,11 @@ h1 {
     align-items: end;
 }
 
+.stat-main {
+    display: flex;
+    gap: 7px;
+}
+
 .stat-main-zahl {
     display: flex;
     align-items: baseline;

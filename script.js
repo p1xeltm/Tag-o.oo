@@ -5,23 +5,23 @@ const elements = {
     days: document.getElementById('d'),
     subs: document.getElementById('subs'),
     fill: document.getElementById('fill'),
-    bg: document.getElementById('bg')
+    bg: document.getElementById('bg'),
+    version: document.getElementById('version'),
+    daysLabel: document.getElementById('days-label')
 };
+
 
 const update = () => {
     const start = new Date(START_DATE);
-    start.setHours(0,0,0,0);
-    
+    start.setHours(0, 0, 0, 0);
+
     const today = new Date();
-    today.setHours(0,0,0,0);
-    
-    const totalDays = Math.max(0, Math.floor((today - start) / 864e5) + 1);
+    today.setHours(0, 0, 0, 0);
+
+    const totalDays = Math.max(0, Math.floor((today - start) / 864e5));
     const max = Math.max(...MILESTONES);
 
     elements.days.textContent = totalDays;
-
-    const yearsDec = (totalDays / 365.2422).toFixed(3).replace('.', ',');
-    const monthsDec = (totalDays / 30.437).toFixed(3).replace('.', ',');
 
     let tempDate = new Date(start);
     let fullMonths = 0;
@@ -29,7 +29,7 @@ const update = () => {
     while (true) {
         let nextMonth = new Date(tempDate);
         nextMonth.setMonth(nextMonth.getMonth() + 1);
-        
+
         if (nextMonth <= today) {
             fullMonths++;
             tempDate = nextMonth;
@@ -37,20 +37,30 @@ const update = () => {
             break;
         }
     }
-    
+
     const remainingDays = Math.floor((today - tempDate) / 864e5);
+    const daysLabel = totalDays === 1 ? 'Tag' : 'Tage';
+    const monthLabel = fullMonths === 1 ? 'monat' : 'monate';
+    const dayLabel = remainingDays === 1 ? 'tag' : 'tage';
 
-
-elements.subs.innerHTML = `
-    <div class="stat-wrds stat-main">
-        <span class="stat-zahl">${fullMonths}</span> monate 
-        <span class="stat-zahl">${remainingDays}</span> tag:e
-    </div>
-`;
-
-
-    elements.fill.style.width = Math.min((totalDays / max) * 100, 100) + "%";
+    elements.daysLabel.textContent = daysLabel;
     
+
+    elements.subs.innerHTML = `
+        <div class="stat-wrds stat-main">
+            <span class="stat-part">
+                <span class="stat-zahl">${fullMonths}</span> ${monthLabel}
+            </span>
+            <span class="stat-part">
+                <span class="stat-zahl">${remainingDays}</span> ${dayLabel}
+            </span>
+        </div>
+    `;
+
+    // Progress-Bar
+    elements.fill.style.width = Math.min((totalDays / max) * 100, 100) + "%";
+
+    // Marker setzen
     const frag = document.createDocumentFragment();
     frag.appendChild(elements.fill);
 
@@ -68,5 +78,6 @@ elements.subs.innerHTML = `
 
 update();
 
-// Einbindung version.json
-fetch('version.json').then(r => r.json()).then(d => version.textContent = d.version);
+fetch('version.json')
+    .then(r => r.json())
+    .then(d => elements.version.textContent = d.version);
