@@ -19,7 +19,7 @@ body {
 
 h1 {
     color: var(--akzent);
-    margin: 0 0 2.1rem;
+    margin: 0 0 3.1rem;
     font-size: 1.1rem;
     letter-spacing: 2.5px;
     font-weight: 512;
@@ -53,6 +53,7 @@ h1 {
 .stat-container {
     border-left: 2.7px solid var(--akzent);
     padding-left: 15px;
+    min-height: 47px;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -60,7 +61,7 @@ h1 {
 }
 
 .stat-wrds {
-    font-size: 1.0rem;
+    font-size: 1.2rem;
     color: var(--statwrds);
     font-weight: 300;
     line-height: 1.1;
@@ -69,12 +70,13 @@ h1 {
 
 .stat-zahl {
     color: var(--statzahl);
+    font-size: 1.4rem;
     font-weight: 450;
 }
 
 .progress-container {
     margin: 2.1rem 0 2.91rem;
-    padding-top: 35px;
+    padding-top: 41px;
     position: relative;
 }
 
@@ -161,7 +163,7 @@ h1 {
         width: 100%;
         justify-content: center;
         gap: 8px;
-        margin-bottom: 1.71rem;
+        margin-bottom: 1.1rem;
         font-size: clamp(6.1rem, 22vw, 8rem);
     }
 
@@ -170,12 +172,13 @@ h1 {
     }
 
     .stat-container {
+        justify-content: flex-start;
         border-left: none;
         border-top: 2.7px solid var(--akzent);
         padding-left: 0;
-        padding-top: 1.5rem;
         width: 100%;
         align-items: center;
+        padding-top: 1.1rem;
     }
 
     .stat-wrds {
@@ -183,7 +186,7 @@ h1 {
     }
 
     .progress-container {
-        margin-top: 2.4rem;
+        margin-top: 2.7rem;
         padding-top: 22px;
     }
 
