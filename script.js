@@ -48,7 +48,7 @@ const update = () => {
     }
 
     const remainingDays = Math.floor((today - tempDate) / 864e5);
-    const daysLabel = totalDays === 1 ? 'Tag' : 'Tage';
+    const daysLabel = totalDays === 1 ? 'tag' : 'tage';
     const monthLabel = fullMonths === 1 ? 'monat' : 'monate';
     const dayLabel = remainingDays === 1 ? 'tag' : 'tage';
 
