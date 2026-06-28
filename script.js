@@ -9,51 +9,43 @@ const min = Math.max(0, rawMin - SCALE_PADDING);
 const max = rawMax;
 const range = max - min;
 
-
 const elements = {
     days: document.getElementById('d'),
     subs: document.getElementById('subs'),
     fill: document.getElementById('fill'),
     bg: document.getElementById('bg'),
-    version: document.getElementById('version'),
     daysLabel: document.getElementById('days-label'),
     milestonesArchive: document.getElementById('milestones-archive-content')
 };
 
-
 const update = () => {
     const start = new Date(START_DATE);
     start.setHours(0, 0, 0, 0);
-
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-
     const totalDays = Math.max(0, Math.floor((today - start) / 864e5));
-
     elements.days.textContent = totalDays;
 
-    let tempDate = new Date(start);
-    let fullMonths = 0;
+    // Berechnung Monate
+    let fullMonths =
+        (today.getFullYear() - start.getFullYear()) * 12 +
+        (today.getMonth() - start.getMonth());
 
-    while (true) {
-        let nextMonth = new Date(tempDate);
-        nextMonth.setMonth(nextMonth.getMonth() + 1);
-
-        if (nextMonth <= today) {
-            fullMonths++;
-            tempDate = nextMonth;
-        } else {
-            break;
-        }
+    if (today.getDate() < start.getDate()) {
+        fullMonths--;
     }
 
-    const remainingDays = Math.floor((today - tempDate) / 864e5);
+    fullMonths = Math.max(0, fullMonths);
+    const monthStart = new Date(start);
+    monthStart.setMonth(start.getMonth() + fullMonths);
+    const remainingDays = Math.floor((today - monthStart) / 864e5);
+
+    // Labels
     const daysLabel = totalDays === 1 ? 'tag' : 'tage';
     const monthLabel = fullMonths === 1 ? 'monat' : 'monate';
     const dayLabel = remainingDays === 1 ? 'tag' : 'tage';
 
     elements.daysLabel.textContent = daysLabel;
-    
 
     elements.subs.innerHTML = `
         <div class="stat-wrds stat-main">
@@ -66,35 +58,34 @@ const update = () => {
         </div>
     `;
 
-    // Meilensteine, Archiv
-    elements.milestonesArchive.textContent =
-    MILESTONES_ARCHIVE.join(' • ');
+    // Archiv Meilensteine
+    elements.milestonesArchive.textContent = MILESTONES_ARCHIVE.join(' • ');
 
-    // Progress-Bar
-    elements.fill.style.width = Math.min(((totalDays - min) / range) * 100, 100) + "%"
+    // update Fortschrittsbalken
+    const progress = Math.min(Math.max((totalDays - min) / range, 0), 1);
+    elements.fill.style.width = progress * 100 + "%";
 
+    // Entfernen alter Marker
+    elements.bg.querySelectorAll('.marker').forEach(el => el.remove());
 
-    // Marker setzen
+    // Setzen der Marker
     const frag = document.createDocumentFragment();
-    frag.appendChild(elements.fill);
 
     [0, ...MILESTONES].forEach(m => {
         const mk = document.createElement('div');
         mk.className = `marker ${totalDays >= m ? 'reached' : ''}`;
 
-        const pos = ((m - min) / range);
+        const pos = (m - min) / range;
         mk.style.left = Math.min(Math.max(pos, 0), 1) * 100 + "%";
 
-        mk.innerHTML = `<span class="marker-label">${m}</span>`;
+        const label = document.createElement('span');
+        label.className = 'marker-label';
+        label.textContent = m;
+
+        mk.appendChild(label);
         frag.appendChild(mk);
     });
-
-    elements.bg.innerHTML = '';
     elements.bg.appendChild(frag);
 };
 
 update();
-
-fetch('version.json')
-    .then(r => r.json())
-    .then(d => elements.version.textContent = d.version);
