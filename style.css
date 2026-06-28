@@ -227,6 +227,10 @@ h1 {
         margin-left: 0;
     }
 
+    .milestones-archive #milestones-archive-content {
+    margin-left: 0;
+    }
+
     .marker-label {
         top: -23px;
     }
