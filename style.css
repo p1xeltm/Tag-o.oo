@@ -149,6 +149,7 @@ h1 {
     height: 24px; 
     position: relative;
     top: 2px;
+    color: #fa6400;
 }
 
 .milestones-archive {
@@ -164,6 +165,11 @@ h1 {
     list-style: none;
     margin-left: 7px;
 }
+
+.milestones-archive #milestones-archive-content {
+    margin-left: 7px;
+}
+
 
 
 /*
@@ -217,23 +223,18 @@ h1 {
         padding-right: 0;
     }
 
-
     .milestones-archive summary {
-        margin-left: 0px;
+        margin-left: 0;
     }
-
 
     .marker-label {
         top: -23px;
     }
 
-    .footer {
+    .footer .version-tag{
         align-items: baseline;
+        font-size: .81rem;
         gap: 7px;
-    }
-
-    .version-tag {
-        font-size: .81rem !important;
     }
 
     .icon-git {
