@@ -1,0 +1,234 @@
+body {
+    font-family: 'Google Sans Flex', sans-serif;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+    padding: 0 15px;
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 550px;
+    padding: 1.8rem;
+    background: var(--bgcard);
+    border-radius: 17px;
+    box-shadow: -5px 11px 11px var(--card-shdw);
+}
+
+h1 {
+    color: var(--akzent);
+    margin: 0 0 3.1rem;
+    font-size: 1.1rem;
+    letter-spacing: 2.5px;
+    font-weight: 512;
+}
+
+.main-stat-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 30px;
+    margin-bottom: 1.5rem;
+    align-items: end;
+}
+
+.stat-main {
+    display: flex;
+    gap: 7px;
+}
+
+.stat-main-zahl {
+    display: flex;
+    align-items: baseline;
+    font-size: clamp(4.5rem, 18vw, 5.5rem);
+    font-weight: 171;
+    color: var(--statzahl);
+    line-height: 0.8;
+}
+
+.stat-main-wrd {
+    font-size: 1.2rem;
+    color: var(--statwrds);
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.stat-container {
+    border-left: 2.7px solid var(--akzent);
+    padding-left: 15px;
+    min-height: 47px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 6px;
+}
+
+.stat-wrds {
+    font-size: 1.2rem;
+    color: var(--statwrds);
+    font-weight: 300;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.stat-zahl {
+    color: var(--statzahl);
+    font-size: 1.91rem;
+    font-weight: 410;
+}
+
+.progress-container {
+    margin: 2.1rem 0 0;
+    position: relative;
+    padding-top: 41px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.bar-bg {
+    background: var(--bar00bg);
+    height: 11px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--barakznt1), var(--barakznt2));
+    border-radius: 10px;
+}
+
+.marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 3px;
+    height: 23px;
+    border-radius: 2px;
+    background: var(--bar00mrkr);
+}
+
+.marker.reached {
+    background: var(--akzent);
+    z-index: 2;
+    box-shadow: 0 0 1px var(--akzent);
+}
+
+.marker-label {
+    position: absolute;
+    top: -31px;
+    transform: translateX(-50%);
+    font-size: .9rem;
+    color: var(--bar00mrkr);
+    font-weight: 450;
+}
+
+.marker.reached .marker-label { 
+    color: var(--akzent); 
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline; 
+    margin-top: 1.7rem;
+    gap: 7px;
+}
+
+.version-tag { 
+    font-size: 0.91rem;
+    color: var(--statwrds); 
+    opacity: .71;
+    line-height: 1;
+    letter-spacing: 0.11em;
+}
+
+.icon-git { 
+    width: 24px;
+    height: 24px; 
+    position: relative;
+    top: 2px;
+    color: #fa6400;
+}
+
+#milestones-archive-content {
+    margin-top: 21px;
+    font-size: 1.0rem;
+    color: var(--bar00mrkr);
+    letter-spacing: 0.07em;
+    opacity: 0.27;
+    margin-left: 7px;
+}
+
+/*
+  ---------------------------------------------------------------------
+    Optimierungen für Umbruch-Layout
+    Google Pixel 6a // max-width: 720px
+  ---------------------------------------------------------------------
+*/
+
+@media (max-width: 720px) {
+    .main-stat-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .stat-main-zahl {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1.1rem;
+        font-size: clamp(6.1rem, 22vw, 8rem);
+    }
+
+    .stat-main-wrd {
+        font-size: 1.17rem;
+    }
+
+    .stat-container {
+        justify-content: flex-start;
+        border-left: none;
+        border-top: 2.7px solid var(--akzent);
+        padding-left: 0;
+        padding-top: 0.91rem;
+        width: 100%;
+        align-items: center;
+    }
+
+    .stat-wrds {
+        font-size: 1.17rem;
+    }
+
+    .stat-zahl {
+        font-size: 1.71rem;
+    }
+
+    .progress-container {
+        margin-top: 1.59rem;
+        padding-top: 22px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #milestones-archive-content {
+        margin-left: 0;
+    }
+
+    .marker-label {
+        top: -23px;
+    }
+
+    .footer .version-tag{
+        align-items: baseline;
+        font-size: .81rem;
+        gap: 7px;
+    }
+
+    .icon-git {
+        width: 21px; 
+        height: 21px;
+        top: 0px;
+    }
+}

@@ -1,0 +1,44 @@
+body[data-theme="orbeafoxfactory26"] {
+    --bg:           hsl(0, 0%, 80%);
+    --bgcard:       hsl(0, 0%, 100%);
+    --card-shdw:    hsl(0, 0%, 45%);
+
+    --akzent:       hsl(180, 85%, 35%);
+    --statwrds:     hsl(50, 50%, 45%);
+    --statzahl:     hsl(0, 0%, 30%);
+
+    --barakznt1:    hsl(215, 95%, 25%);
+    --barakznt2:    hsl(180, 85%, 35%);
+    --bar00bg:      hsl(0, 0%, 80%);
+    --bar00mrkr:    hsl(0, 0%, 50%);
+}
+
+body[data-theme="matchatm"] {
+    --bg:           hsl(90, 5%, 50%);
+    --bgcard:       hsl(0, 0%, 100%);
+    --card-shdw:    hsl(160, 10%, 30%);
+
+    --akzent:       hsl(160, 90%, 30%);
+    --statwrds:     hsl(170, 100%, 25%);
+    --statzahl:     hsl(160, 10%, 30%);
+
+    --barakznt1:    hsl(170, 100%, 25%);
+    --barakznt2:    hsl(140, 65%, 40%);
+    --bar00bg:      hsl(90, 15%, 80%);
+    --bar00mrkr:    hsl(160, 10%, 30%);
+}
+
+body[data-theme="exceedcfslx"] {
+    --bg:           hsl(0, 0%, 75%);
+    --bgcard:       hsl(0, 0%, 100%);
+    --card-shdw:    hsl(0, 0%, 40%);
+
+    --akzent:       hsl(24, 100%, 47%);
+    --statwrds:     hsl(50, 70%, 45%);
+    --statzahl:     hsl(214, 20%, 27%);
+
+    --barakznt1:    hsl(50, 100%, 55%);
+    --barakznt2:    hsl(24, 100%, 47%);
+    --bar00bg:      hsl(0, 0%, 85%);
+    --bar00mrkr:    hsl(0, 0%, 50%);
+}
