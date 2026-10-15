@@ -1,5 +1,5 @@
 const START_DATE = "2026-10-09";
-const record = "7monate 21tage";
+const record = "7monate21tage";
 const MILESTONES = [11, 19];
 
 const SCALE_PADDING = 7;
@@ -10,11 +10,11 @@ const max = rawMax;
 const range = max - min;
 
 const elements = {
-    days: document.getElementById('d'),
-    subs: document.getElementById('subs'),
+    tagesZahl: document.getElementById('tages-zahl'),
+    monateTageBlock: document.getElementById('monate-tage-block'),
     fill: document.getElementById('fill'),
     bg: document.getElementById('bg'),
-    daysLabel: document.getElementById('days-label'),
+    tagesLabel: document.getElementById('tages-label'),
     milestonesArchive: document.getElementById('milestones-archive-content')
 };
 
@@ -24,7 +24,7 @@ const update = () => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const totalDays = Math.max(0, Math.floor((today - start) / 864e5));
-    elements.days.textContent = totalDays;
+    elements.tagesZahl.textContent = totalDays;
 
     // Berechnung Monate
     let fullMonths =
@@ -45,15 +45,15 @@ const update = () => {
     const monthLabel = fullMonths === 1 ? 'monat' : 'monate';
     const dayLabel = remainingDays === 1 ? 'tag' : 'tage';
 
-    elements.daysLabel.textContent = daysLabel;
+    elements.tagesLabel.textContent = daysLabel;
 
-    elements.subs.innerHTML = `
-        <div class="stat-wrds stat-main">
-            <span class="stat-part">
-                <span class="stat-zahl">${fullMonths}</span> ${monthLabel}
+    elements.monateTageBlock.innerHTML = `
+        <div class="statistik-text statistik-inhalt-haupt">
+            <span class="statistik-teil">
+                <span class="statistik-zahl">${fullMonths}</span> ${monthLabel}
             </span>
-            <span class="stat-part">
-                <span class="stat-zahl">${remainingDays}</span> ${dayLabel}
+            <span class="statistik-teil">
+                <span class="statistik-zahl">${remainingDays}</span> ${dayLabel}
             </span>
         </div>
     `;

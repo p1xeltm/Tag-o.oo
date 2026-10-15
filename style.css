@@ -4,8 +4,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 40px;
-    padding: 0 15px;
+    margin-top: 2.5rem;
+    padding: 0 0.9rem;
 }
 
 .dashboard {
@@ -25,65 +25,93 @@ h1 {
     font-weight: 512;
 }
 
-.main-stat-container {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 30px;
-    margin-bottom: 1.5rem;
-    align-items: end;
-}
 
-.stat-main {
-    display: flex;
-    gap: 7px;
-}
+/* -------- Hauptcontainer für beide Statistik-Blöcke -------- */
 
-.stat-main-zahl {
+.statistik-container-gesamt {
     display: flex;
     align-items: baseline;
-    font-size: clamp(4.5rem, 18vw, 5.5rem);
-    font-weight: 171;
-    color: var(--statzahl);
-    line-height: 0.8;
+    justify-content: flex-start;
+    column-gap: 1.9rem;
+    margin-bottom: 1.5rem;
 }
 
-.stat-main-wrd {
-    font-size: 1.2rem;
-    color: var(--statwrds);
-    font-weight: 300;
-    white-space: nowrap;
-}
-
-.stat-container {
-    border-left: 2.7px solid var(--akzent);
-    padding-left: 15px;
-    min-height: 47px;
+/* -------- Statistik-Block links -------- */
+.statistik-block-links {
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    gap: 6px;
+    align-items: baseline;
 }
 
-.stat-wrds {
-    font-size: 1.2rem;
+.statistik-inhalt-haupt {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+}
+
+.statistik-teil {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+}
+
+.statistik-block-links .statistik-zahl {
+    color: var(--statzahl);
+    font-size: 3.1rem;
+    font-weight: 250;
+    line-height: 1;
+}
+
+.statistik-block-links .statistik-text {
     color: var(--statwrds);
-    font-weight: 300;
-    line-height: 1.1;
+    font-size: 1.7rem;
+    font-weight: 290;
+    line-height: 1;
     white-space: nowrap;
 }
 
-.stat-zahl {
-    color: var(--statzahl);
-    font-size: 1.91rem;
-    font-weight: 410;
+/* -------- Statistik-Block rechts -------- */
+.statistik-block-rechts {
+    position: relative;
+    padding-left: 1.25rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
 }
+
+.statistik-block-rechts::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+    height: 2.9em;
+    width: 2.7px;
+    background-color: var(--akzent);
+}
+
+.statistik-block-rechts .statistik-zahl {
+    color: var(--statzahl);
+    font-size: 2.2rem;
+    font-weight: 250;
+    line-height: 1;
+}
+
+.statistik-block-rechts .statistik-text {
+    color: var(--statwrds);
+    font-size: 1.3rem;
+    font-weight: 290;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+/* -------- Fortschrittsbalken u Marker -------- */
 
 .progress-container {
     margin: 2.1rem 0 0;
     position: relative;
-    padding-top: 41px;
-    padding-left: 10px;
-    padding-right: 5px;
+    padding-top: 2.5rem;
+    padding-left: 0.6rem;
+    padding-right: 0.3rem;
 }
 
 .bar-bg {
@@ -117,7 +145,7 @@ h1 {
 
 .marker-label {
     position: absolute;
-    top: -31px;
+    top: -1.9rem;
     transform: translateX(-50%);
     font-size: .9rem;
     color: var(--bar00mrkr);
@@ -128,12 +156,15 @@ h1 {
     color: var(--akzent); 
 }
 
+
+/* -------- Footer -------- */
+
 .footer {
     display: flex;
     justify-content: flex-end;
     align-items: baseline; 
     margin-top: 1.7rem;
-    gap: 7px;
+    gap: 0.4rem;
 }
 
 .version-tag { 
@@ -145,90 +176,59 @@ h1 {
 }
 
 .icon-git { 
-    width: 24px;
-    height: 24px; 
+    width: 1.5rem;
+    height: 1.5rem; 
     position: relative;
-    top: 2px;
-    color: #fa6400;
+    top: 0.1rem;
 }
 
 #milestones-archive-content {
-    margin-top: 21px;
+    margin-top: 1.3rem;
     font-size: 1.0rem;
     color: var(--bar00mrkr);
     letter-spacing: 0.07em;
     opacity: 0.27;
-    margin-left: 7px;
+    margin-left: 0.4rem;
 }
+
 
 /*
   ---------------------------------------------------------------------
-    Optimierungen für Umbruch-Layout
-    Google Pixel 6a // max-width: 720px
+    Optimierungen für Google Pixel 6a
   ---------------------------------------------------------------------
 */
 
 @media (max-width: 720px) {
-    .main-stat-container {
-        display: flex;
+    .statistik-container-gesamt {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        column-gap: 0;
+        row-gap: 0.7rem;
     }
 
-    .stat-main-zahl {
-        width: 100%;
+    .statistik-block-links {
         justify-content: center;
-        margin-bottom: 1.1rem;
-        font-size: clamp(6.1rem, 22vw, 8rem);
     }
 
-    .stat-main-wrd {
-        font-size: 1.17rem;
+    .statistik-inhalt-haupt {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.6rem;
     }
 
-    .stat-container {
-        justify-content: flex-start;
-        border-left: none;
-        border-top: 2.7px solid var(--akzent);
+    .statistik-block-rechts {
         padding-left: 0;
-        padding-top: 0.91rem;
+        padding-top: 0.8rem;
+        justify-content: center;
         width: 100%;
-        align-items: center;
     }
 
-    .stat-wrds {
-        font-size: 1.17rem;
-    }
-
-    .stat-zahl {
-        font-size: 1.71rem;
-    }
-
-    .progress-container {
-        margin-top: 1.59rem;
-        padding-top: 22px;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    #milestones-archive-content {
-        margin-left: 0;
-    }
-
-    .marker-label {
-        top: -23px;
-    }
-
-    .footer .version-tag{
-        align-items: baseline;
-        font-size: .81rem;
-        gap: 7px;
-    }
-
-    .icon-git {
-        width: 21px; 
-        height: 21px;
-        top: 0px;
+    .statistik-block-rechts::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        width: 80%;
+        height: 2.7px;
     }
 }
